@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "commonjs",
+    "strict": true,
+    "allowJs": true,
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",               
+    "paths": {
+      "@models/*": ["./models/*"], 
+      "@/*": ["./*"],  
+      "@services/*": ["./services/*"], 
+      "@utils/*": ["./utils/*"],     
+      "@test/*": ["./tests/*"],   
+      "@middleware/*": [".//*"],     
+      "@routes/*": ["./routes/*"]    
+    }
+  },
+  "include": [
+    "./**/*"                        
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
