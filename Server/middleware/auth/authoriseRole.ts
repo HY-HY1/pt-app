@@ -7,14 +7,15 @@ interface UserPayload extends JwtPayload {
 
 export const authorizeRole = (role: string) => {
   return (req: Request, res: Response, next: NextFunction) => {
-    if (req.user && typeof req.user !== 'string' && 'role' in req.user) {
-      const user = req.user as UserPayload;  // Type casting to ensure req.user has role
+    // Fallback using `as any` to bypass TypeScript if needed
+    const user = (req as any).user as UserPayload;
 
-      if (user.role === role) {
-        return next();  // Role is authorized
-      }
+    // Ensure `user` exists and has a role
+    if (user && user.role === role) {
+      return next();  // If authorized, continue to the next middleware
     }
 
+    // If the user is not authorized, send a 403 error
     return res.status(403).json({ message: 'Access denied: Insufficient permissions' });
   };
 };

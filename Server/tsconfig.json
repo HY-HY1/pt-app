@@ -8,21 +8,16 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "baseUrl": ".",               
+    "baseUrl": ".",
+    "typeRoots": ["./node_modules/@types", "./types"],  // Make sure types directory is included
     "paths": {
-      "@models/*": ["./models/*"], 
-      "@/*": ["./*"],  
-      "@services/*": ["./services/*"], 
-      "@utils/*": ["./utils/*"],     
-      "@test/*": ["./tests/*"],   
-      "@middleware/*": [".//*"],     
-      "@routes/*": ["./routes/*"]    
+      "@models/*": ["./models/*"],
+      "@services/*": ["./services/*"],
+      "@middleware/*": ["./middleware/*"],
+      "@routes/*": ["./routes/*"],
+      "@utils/*": ["./utils/*"]
     }
   },
-  "include": [
-    "./**/*"                        
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["./**/*"],
+  "exclude": ["node_modules"]
 }

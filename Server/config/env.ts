@@ -8,7 +8,7 @@ interface EnvConfig {
     PORT: number;
     JWT_SECRET: string;
     STRIPE_SECRET_KEY: string;
-    SENDGRID_API_KEY: string;
+    // SENDGRID_API_KEY: string;
 }
 
 const getEnvVariable = (key: string, fallback?: string): string => {
@@ -24,5 +24,5 @@ export const config: EnvConfig = {
     PORT: parseInt(getEnvVariable('PORT', '3000')),
     JWT_SECRET: getEnvVariable('JWT_SECRET'),
     STRIPE_SECRET_KEY: getEnvVariable('STRIPE_SECRET_KEY'),
-    SENDGRID_API_KEY: getEnvVariable('SENDGRID_API_KEY')
+    // SENDGRID_API_KEY: getEnvVariable('SENDGRID_API_KEY') Add in later
 };
