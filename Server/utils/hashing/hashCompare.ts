@@ -19,7 +19,6 @@ export default async function hashCompare({ existingString, input }: Compare) {
 
     return match;
   } catch (error) {
-    
     throw error;
   }
 }
