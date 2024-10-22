@@ -3,10 +3,11 @@ import loginRouter from './login';
 import registerRouter from './register';
 import accountRouter from './account';
 
-const router = Router();
+const authRouter = Router();
 
-router.use('/', loginRouter);
-router.use('/', registerRouter);
-router.use('/', accountRouter);
+// Prefix the routes to avoid conflicts
+authRouter.use('/login', loginRouter);
+authRouter.use('/register', registerRouter);
+authRouter.use('/account', accountRouter);
 
-export default router;
+export default authRouter;
