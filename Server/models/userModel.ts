@@ -8,40 +8,42 @@ interface User extends Document {
   email: string;
   password: string;
   role: 'user' | 'admin';
-  subscription: {
+  emailVerified: Boolean, 
+  phoneVerified: Boolean, 
+  subscription?: {
     status: 'active' | 'inactive' | 'pending' | 'cancelled';
     plan: 'basic' | 'premium' | 'enterprise';
-    renewalDate: Date;
+    renewalDate?: Date;
   };
-  address: {
-    street: string;
-    city: string;
-    state: string;
-    postalCode: string;
-    country: string;
+  address?: {
+    street?: string;
+    city?: string;
+    state?: string;
+    postalCode?: string;
+    country?: string;
   };
-  phone: string;
-  preferences: {
-    newsletterOptIn: boolean;
+  phone?: string;
+  preferences?: {
+    newsletterOptIn?: boolean;
   };
-  paymentMethods: {
-    cardType: string;
-    last4Digits: string;
-    expiryDate: Date;
-    billingAddress: {
-      street: string;
-      city: string;
-      state: string;
-      postalCode: string;
-      country: string;
+  paymentMethods?: {
+    cardType?: string;
+    last4Digits?: string;
+    expiryDate?: Date;
+    billingAddress?: {
+      street?: string;
+      city?: string;
+      state?: string;
+      postalCode?: string;
+      country?: string;
     };
   }[];
-  demographics: {
-    gender: 'male' | 'female' | 'non-binary' | 'other';
-    dateOfBirth: Date;
+  demographics?: {
+    gender?: 'male' | 'female' | 'non-binary' | 'other';
+    dateOfBirth?: Date;
   };
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 // Create the schema
@@ -53,24 +55,26 @@ const userSchema: Schema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   role: { type: String, enum: ['user', 'admin'], default: 'user' },
+  emailVerified: { type: Boolean, default: false},
+  phoneVerified: { type: Boolean, default: false},
   
   // Subscription details
   subscription: {
     status: { type: String, enum: ['active', 'inactive', 'pending', 'cancelled'], default: 'inactive' },
     plan: { type: String, enum: ['basic', 'premium', 'enterprise'], default: 'basic' },
-    renewalDate: { type: Date, default: null },
+    renewalDate: { type: Date },
   },
 
   // Address details
   address: {
-    street: { type: String, required: true },
-    city: { type: String, required: true },
-    state: { type: String, required: true },
-    postalCode: { type: String, required: true },
-    country: { type: String, required: true },
+    street: { type: String },
+    city: { type: String },
+    state: { type: String },
+    postalCode: { type: String },
+    country: { type: String },
   },
 
-  phone: { type: String, required: true },
+  phone: { type: String },
 
   preferences: {
     newsletterOptIn: { type: Boolean, default: false },
@@ -78,22 +82,22 @@ const userSchema: Schema = new Schema({
 
   paymentMethods: [
     {
-      cardType: { type: String, required: true },
-      last4Digits: { type: String, required: true },
-      expiryDate: { type: Date, required: true },
+      cardType: { type: String },
+      last4Digits: { type: String },
+      expiryDate: { type: Date },
       billingAddress: {
-        street: { type: String, required: true },
-        city: { type: String, required: true },
-        state: { type: String, required: true },
-        postalCode: { type: String, required: true },
-        country: { type: String, required: true },
+        street: { type: String },
+        city: { type: String },
+        state: { type: String },
+        postalCode: { type: String },
+        country: { type: String },
       },
     },
   ],
 
   demographics: {
-    gender: { type: String, enum: ['male', 'female', 'non-binary', 'other'], required: true },
-    dateOfBirth: { type: Date, required: true },
+    gender: { type: String, enum: ['male', 'female', 'non-binary', 'other'] },
+    dateOfBirth: { type: Date },
   },
 
   createdAt: { type: Date, default: Date.now },
