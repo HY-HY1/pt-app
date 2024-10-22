@@ -5,17 +5,18 @@ export const authenticateUser = (req: Request, res: Response, next: NextFunction
   const token = req.header('Authorization')?.split(' ')[1];
 
   if (!token) {
-    return res.status(401).json({ message: 'No token, authorization denied' });
+    res.status(401).json({ message: 'No token, authorization denied' });
+    return
   }
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
 
-    // Bypass TypeScript type checks for req.user
     (req as any).user = decoded as JwtPayload;
 
     next();
   } catch (error) {
-    return res.status(401).json({ message: 'Invalid token' });
+    res.status(401).json({ message: 'Invalid token' });
+    return
   }
 };
