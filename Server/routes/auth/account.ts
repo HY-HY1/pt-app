@@ -1,10 +1,14 @@
-import { Router } from 'express';
+import { Router, Request, Response, NextFunction } from 'express';
+import { authenticateUser  } from '@middleware/index';
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  // Logic to retrieve user account info
-  res.send('Account route');
+router.get('/', authenticateUser, async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    
+  } catch (error) {
+    next(error)
+  }
 });
 
 export default router;
