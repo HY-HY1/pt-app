@@ -2,7 +2,7 @@ POST http://localhost:4000/auth/login
 Content-Type: application/json
 
 {
-    "email": "john@example.com",
+    "email": "hjyemm@icloud.com",
     "password": "password123"
 }
 ###
@@ -10,9 +10,9 @@ POST http://localhost:4000/auth/register
 Content-Type: application/json
 
 {
-  "firstName": "John",
-  "lastName": "Doe",
-  "email": "john@example.com",
+  "firstName": "Harvey",
+  "lastName": "Yemm",
+  "email": "hjyemm@icloud.com",
   "password": "password123",
   "gender": "male",
   "dateOfBirth": "1990-01-01",
@@ -22,3 +22,19 @@ Content-Type: application/json
 ###
 GET http://localhost:4000/auth/account
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MThhZjc5YmQzNzZmZTNlZTE0ZjhiOCIsImVtYWlsIjoiam9obkBleGFtcGxlLmNvbSIsImlhdCI6MTcyOTY3MTAzMywiZXhwIjoxNzMwMjc1ODMzfQ.E-2z5YWMJCOLC8J0fP01AKFL6-H-S14XWgJGyWhW-ME
+###
+DELETE  http://localhost:4000/auth/account/delete
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MThkNmFjNDZmYjMyYzhhOWYwNjBiOCIsImVtYWlsIjoiaGp5ZW1tQGljbG91ZC5jb20iLCJpYXQiOjE3Mjk2ODEwNzUsImV4cCI6MTczMDI4NTg3NX0.T6kIQ6gk32Xr0JXviaq_CI486R2Fdhg-pVuGEGI4_e4
+###
+POST  http://localhost:4000/auth/account/verify/create
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MThkNmFjNDZmYjMyYzhhOWYwNjBiOCIsImVtYWlsIjoiaGp5ZW1tQGljbG91ZC5jb20iLCJpYXQiOjE3Mjk2ODEwNzUsImV4cCI6MTczMDI4NTg3NX0.T6kIQ6gk32Xr0JXviaq_CI486R2Fdhg-pVuGEGI4_e4
+
+###
+POST http://localhost:4000/verify
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MThkNmFjNDZmYjMyYzhhOWYwNjBiOCIsImVtYWlsIjoiaGp5ZW1tQGljbG91ZC5jb20iLCJpYXQiOjE3Mjk2ODEwNzUsImV4cCI6MTczMDI4NTg3NX0.T6kIQ6gk32Xr0JXviaq_CI486R2Fdhg-pVuGEGI4_e4
+
+
+{
+  "userCode": "806136"  // Code provided by the user
+}
