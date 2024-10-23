@@ -8,7 +8,7 @@ import { generateToken } from '@utils/jwt/generateToken';
 
 const router = Router();
 
-router.post('/', requestLogger, async (req: Request, res: Response, next: NextFunction) => {
+router.post('/', async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { firstName, lastName, email, password, gender, dateOfBirth, phone } = req.body;
 
