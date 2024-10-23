@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { connectDB } from './config/Mongoose';
 import authRouter from './routes/auth';  // Import the combined auth router
-import { errorHandler } from './middleware/index';  // Ensure this path is correct
+import { errorHandler, requestLogger, validateRequest } from './middleware/index';  // Ensure this path is correct
 
 const app = express();
 
@@ -19,6 +19,8 @@ app.get('/', (req, res) => {
 app.use('/auth', authRouter);
 
 app.use(errorHandler);
+app.use(requestLogger)
+app.use(validateRequest)
 
 app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
   console.error(err.stack);
