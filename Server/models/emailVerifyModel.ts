@@ -1,26 +1,19 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
-interface User extends Document {
-  _id: String,
-  email: String,
-  code: Number,
-  createdAt: Date,
-  updatedAt: Date
-  
+interface VerifyEmail extends Document {
+  email: string;
+  code: number;
+  actionType: 'emailChange' | 'passwordChange' | 'other';  // Add actionType field
+  createdAt?: Date;
 }
 
 // Create the schema
-const userSchema: Schema = new Schema({
-    email: {type: String, required: true},
-    code: {type: Number},
-    createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now },
+const verifyEmailSchema: Schema = new Schema({
+  email: { type: String, required: true },
+  code: { type: Number, required: true },
+  actionType: { type: String, enum: ['emailChange', 'passwordChange', 'verify'], required: true },  // Set action type
+  createdAt: { type: Date, default: Date.now }
 });
 
-userSchema.pre('save', function (next) {
-  this.updatedAt = new Date();
-  next();
-});
-
-const VerifyEmailModel = mongoose.model<User>('VerifyEmail', userSchema);
+const VerifyEmailModel = mongoose.model<VerifyEmail>('VerifyEmail', verifyEmailSchema);
 export default VerifyEmailModel;
