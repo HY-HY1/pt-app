@@ -30,4 +30,10 @@ router.use('/delete', deleteRouter)
 import emailRouter from '@routes/auth/verifyEmail'
 router.use('/verify', emailRouter)
 
+import emailChangeRouter from '@routes/auth/changeEmail'
+router.use('/change-email', emailChangeRouter)
+
+import passwordChangeRoute from '@routes/auth/changePassword'
+router.use('/change-password', passwordChangeRoute)
+
 export default router;
