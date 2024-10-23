@@ -27,4 +27,7 @@ import deleteRouter from '@routes/auth/delete'
 import isExistingUser from '@utils/mongoose/isExistingUser';
 router.use('/delete', deleteRouter)
 
+import emailRouter from '@routes/auth/verifyEmail'
+router.use('/verify', emailRouter)
+
 export default router;
