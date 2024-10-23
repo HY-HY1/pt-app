@@ -1,14 +1,30 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { authenticateUser  } from '@middleware/index';
+import UserModel from '@models/userModel';
 
 const router = Router();
 
-router.get('/', authenticateUser, async (req: Request, res: Response, next: NextFunction) => {
+router.use(authenticateUser)
+
+router.get('/', async (req: Request, res: Response, next: NextFunction) => {
   try {
-    // Retrieve User Data
+    const user  = (req as any).user // Returns email and ID
+
+    const existingUser = await isExistingUser(user.id)
+
+    res.status(200).json({success: true, authenticated: true, user: existingUser})
+  
+
   } catch (error) {
     next(error)
   }
 });
+
+//Import Delete Route
+
+// /auth/account/delete
+import deleteRouter from '@routes/auth/delete'
+import isExistingUser from '@utils/mongoose/isExistingUser';
+router.use('/delete', deleteRouter)
 
 export default router;
