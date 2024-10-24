@@ -4,10 +4,11 @@ import isExistingUser from "@utils/mongoose/isExistingUser";
 import { generateToken } from "@utils/jwt/generateToken";
 import VerifyEmailModel from "@models/emailVerifyModel";
 import hashString from "@utils/hashing/hashString";
+import { requestLogger } from "@middleware/index";
 
 const router = Router();
 
-router.post("/", async (req: Request, res: Response, next: NextFunction) => {
+router.post("/", requestLogger,async (req: Request, res: Response, next: NextFunction) => {
   try {
     const user = (req as any).user; // The authenticated user
     const { newPassword, verificationCode } = req.body;
@@ -24,8 +25,10 @@ router.post("/", async (req: Request, res: Response, next: NextFunction) => {
 
     const passwordCode = await VerifyEmailModel.findOne({ email: user.email, actionType: "passwordChange" });
 
+    console.log("User", passwordCode)
+
     if (!passwordCode) {
-      res.status(400).json({ error: "You need to verify your password" });
+      res.status(400).json({ error: "You need to verify your email" });
       return;
     }
 
@@ -43,6 +46,9 @@ router.post("/", async (req: Request, res: Response, next: NextFunction) => {
         {password: passwordHash},
         {new: true}
     )
+
+    await VerifyEmailModel.findOneAndDelete({email: user.email, actionType: "passwordChange"})
+
 
     const newUser = await UserModel.findById(user.id);
 

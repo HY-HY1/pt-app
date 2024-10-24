@@ -20,6 +20,9 @@ router.post('/', async (req: Request, res: Response, next: NextFunction) => {
     const user = (req as any).user;  // The authenticated user
     const { verificationCode, newEmail } = req.body;
 
+    console.log('Inputted Code', verificationCode)
+
+
     if (!newEmail) {
        res.status(400).json({ error: 'New email is required' });
        return
@@ -36,7 +39,9 @@ router.post('/', async (req: Request, res: Response, next: NextFunction) => {
       
       const newUpdatedUser = await UserModel.findOne({ email: newEmail });
 
-      const token = generateToken(newEmail, user.id);
+      await VerifyEmailModel.findOneAndDelete({ email: user.email, actionType: "emailChange" });
+
+      const token = generateToken(user.id, newEmail);
 
        res.status(200).json({ success: true, token, user: newUpdatedUser });
        return
@@ -47,13 +52,15 @@ router.post('/', async (req: Request, res: Response, next: NextFunction) => {
        return
     }
 
-    const passwordCode = await VerifyEmailModel.findOne({ email: user.email });
+    const passwordCode = await VerifyEmailModel.findOne({ email: user.email, actionType: "emailChange" });
+
 
     if (!passwordCode) {
        res.status(400).json({ error: 'You need to verify your email' });
        return
     }
 
+    console.log('Real Code', passwordCode.code || '')
     if (passwordCode.code !== verificationCode) {
        res.status(400).json({ error: 'Verification code is incorrect' });
        return
@@ -65,11 +72,11 @@ router.post('/', async (req: Request, res: Response, next: NextFunction) => {
       { new: true }                           // Return the updated document
     );
     
-    await VerifyEmailModel.findOneAndDelete({ email: user.email });
+    await VerifyEmailModel.findOneAndDelete({ email: user.email, actionType: "emailChange" });
 
     const newUser = await UserModel.findById(user.id);
 
-    const token = generateToken(newEmail, user.id);
+    const token = generateToken(user.id, newEmail); // Pass both the id and the newEmail
 
      res.status(200).json({ success: true, token, user: newUser });
   } catch (error) {
