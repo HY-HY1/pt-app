@@ -4,7 +4,7 @@ import { connectDB } from './config/Mongoose';
 import authRouter from './routes/auth';  // Import the combined auth router
 import { errorHandler, requestLogger, validateRequest } from './middleware/index';  // Ensure this path is correct
 
-const app = express();
+export const app = express();
 
 app.use(cors());
 app.use(express.json());  // Middleware for parsing JSON
