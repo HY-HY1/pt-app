@@ -1,43 +1,52 @@
 POST  http://localhost:4000/auth/account/verify/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImhqeWVtbTFAZ21haWwuY29tIiwiZW1haWwiOiI2NzE5NmUzODNlZGE3ZDU5OGYyZjBmY2YiLCJpYXQiOjE3Mjk3MjAwNjUsImV4cCI6MTczMDMyNDg2NX0.gpGgR9CkGW9WbyqY5wtc7Gnh8aRvtnBtgPq4Cxes4TY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWE1MWEwZThhMGIzYzIyOThjY2NmNSIsImVtYWlsIjoiaGp5ZW1tQGljbG91ZC5jb20iLCJpYXQiOjE3Mjk3NzgwODUsImV4cCI6MTczMDM4Mjg4NX0.gpUZimcbGm8BvrU_GNjM8Pk-gmGl69wggsspmUmoKVM
+###
+
+POST  http://localhost:4000/auth/account/verify/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWE1MWEwZThhMGIzYzIyOThjY2NmNSIsImVtYWlsIjoiaGp5ZW1tQGljbG91ZC5jb20iLCJpYXQiOjE3Mjk3NzgwODUsImV4cCI6MTczMDM4Mjg4NX0.gpUZimcbGm8BvrU_GNjM8Pk-gmGl69wggsspmUmoKVM
+
+{
+  "actionType": "emailChange"
+}
+
+###
+POST  http://localhost:4000/auth/account/verify/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWE1MWEwZThhMGIzYzIyOThjY2NmNSIsImVtYWlsIjoiaGp5ZW1tQGljbG91ZC5jb20iLCJpYXQiOjE3Mjk3NzgwODUsImV4cCI6MTczMDM4Mjg4NX0.gpUZimcbGm8BvrU_GNjM8Pk-gmGl69wggsspmUmoKVM
 
 {
   "actionType": "passwordChange"
 }
 
 
-
 ###
 POST http://localhost:4000/auth/account/verify
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImhqeWVtbTFAZ21haWwuY29tIiwiZW1haWwiOiI2NzE5NmUzODNlZGE3ZDU5OGYyZjBmY2YiLCJpYXQiOjE3Mjk3MjAwNjUsImV4cCI6MTczMDMyNDg2NX0.gpGgR9CkGW9WbyqY5wtc7Gnh8aRvtnBtgPq4Cxes4TY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWE1MWEwZThhMGIzYzIyOThjY2NmNSIsImVtYWlsIjoiaGp5ZW1tQGljbG91ZC5jb20iLCJpYXQiOjE3Mjk3NzgwODUsImV4cCI6MTczMDM4Mjg4NX0.gpUZimcbGm8BvrU_GNjM8Pk-gmGl69wggsspmUmoKVM
 
 {
-  "userCode": 675233,
-  "actionType": "verify"
+  "VerificationCode": 948103,
+  "actionType": "passwordChange"
 }
 ###
-# POST http://localhost:4000/auth/account/change-email/request
-# Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTkxYWY2ZDVkNzQ0NzA2MThjYzgwMiIsImVtYWlsIjoiaGp5ZW1tQGljbG91ZC5jb20iLCJpYXQiOjE3Mjk2OTkyMTMsImV4cCI6MTczMDMwNDAxM30.fwwyHtTF8eGaPckWRs2cXpQrJUDj4h0QoK5j22nABHM
-
 
 ###
 POST http://localhost:4000/auth/account/change-email/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTk2ZTM4M2VkYTdkNTk4ZjJmMGZjZiIsImVtYWlsIjoiaGp5ZW1tQGljbG91ZC5jb20iLCJpYXQiOjE3Mjk3MTk4NjQsImV4cCI6MTczMDMyNDY2NH0.sjuHvMatwc1rKRU2641vlQ5bHSpA3ObVndUUyFKZ7tw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWE1MWEwZThhMGIzYzIyOThjY2NmNSIsImVtYWlsIjoiaGp5ZW1tQGljbG91ZC5jb20iLCJpYXQiOjE3Mjk3NzgwODUsImV4cCI6MTczMDM4Mjg4NX0.gpUZimcbGm8BvrU_GNjM8Pk-gmGl69wggsspmUmoKVM
 
 {
-    "verificationCode": 305315,
-    "newEmail": "hjyemm1@gmail.com"
+    "verificationCode": 568297,
+    "newEmail": "hjyemm10@gmail.com"
 }
 ###
 POST http://localhost:4000/auth/account/change-password
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImhqeWVtbTFAZ21haWwuY29tIiwiZW1haWwiOiI2NzE5NmUzODNlZGE3ZDU5OGYyZjBmY2YiLCJpYXQiOjE3Mjk3MjAwNjUsImV4cCI6MTczMDMyNDg2NX0.gpGgR9CkGW9WbyqY5wtc7Gnh8aRvtnBtgPq4Cxes4TY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWE1MWEwZThhMGIzYzIyOThjY2NmNSIsImVtYWlsIjoiaGp5ZW1tQGljbG91ZC5jb20iLCJpYXQiOjE3Mjk3NzgwODUsImV4cCI6MTczMDM4Mjg4NX0.gpUZimcbGm8BvrU_GNjM8Pk-gmGl69wggsspmUmoKVM
 
 {
   "newPassword": "newSecurePassword123",
-  "verificationCode": 422152 
+  "verificationCode": 461455 
 }
