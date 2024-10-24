@@ -6,14 +6,12 @@ export const SaveVerificationCode = async (
   actionType: 'emailChange' | 'passwordChange' | 'other'
 ) => {
   try {
-    // Check if a verification code for this actionType already exists for this email
     const existingCode = await VerifyEmailModel.findOne({
       email: email,
       actionType: actionType,
     });
 
     if (!existingCode) {
-      // If no existing verification code, create a new one
       const VerifyEmailModelObject = new VerifyEmailModel({
         email: email,
         code: code,
@@ -27,7 +25,6 @@ export const SaveVerificationCode = async (
       };
     }
 
-    // If the verification code already exists, update it
     await VerifyEmailModel.findOneAndUpdate(
       { email: email, actionType: actionType },
       { code: code },
