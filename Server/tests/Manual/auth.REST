@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
     "email": "hjyemm@icloud.com",
-    "password": "password123"
+    "password": "newSecurePassword123"
 }
 ###
 POST http://localhost:4000/auth/register
@@ -21,7 +21,7 @@ Content-Type: application/json
 
 ###
 GET http://localhost:4000/auth/account
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTk2ZTM4M2VkYTdkNTk4ZjJmMGZjZiIsImVtYWlsIjoiaGp5ZW1tQGljbG91ZC5jb20iLCJpYXQiOjE3Mjk3MTk4NjQsImV4cCI6MTczMDMyNDY2NH0.sjuHvMatwc1rKRU2641vlQ5bHSpA3ObVndUUyFKZ7tw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWE1MWEwZThhMGIzYzIyOThjY2NmNSIsImVtYWlsIjoiaGp5ZW1tQGljbG91ZC5jb20iLCJpYXQiOjE3Mjk3NzgwODUsImV4cCI6MTczMDM4Mjg4NX0.gpUZimcbGm8BvrU_GNjM8Pk-gmGl69wggsspmUmoKVM
 ###
 DELETE  http://localhost:4000/auth/account/delete
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTk2ZTM4M2VkYTdkNTk4ZjJmMGZjZiIsImVtYWlsIjoiaGp5ZW1tQGljbG91ZC5jb20iLCJpYXQiOjE3Mjk3MTk4NjQsImV4cCI6MTczMDMyNDY2NH0.sjuHvMatwc1rKRU2641vlQ5bHSpA3ObVndUUyFKZ7tw
