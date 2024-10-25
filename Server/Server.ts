@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { connectDB } from './config/Mongoose';
 import authRouter from './routes/auth';  // Import the combined auth router
+import paymentRouter from './routes/payment'
 import { errorHandler, requestLogger, validateRequest } from './middleware/index';  // Ensure this path is correct
 
 export const app = express();
@@ -17,6 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', authRouter);
+app.use('/payment', paymentRouter)
 
 app.use(errorHandler);
 app.use(requestLogger)
