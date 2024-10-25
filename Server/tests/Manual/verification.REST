@@ -47,6 +47,6 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWE1MWEwZThhMGIzYzIyOThjY2NmNSIsImVtYWlsIjoiaGp5ZW1tQGljbG91ZC5jb20iLCJpYXQiOjE3Mjk3NzgwODUsImV4cCI6MTczMDM4Mjg4NX0.gpUZimcbGm8BvrU_GNjM8Pk-gmGl69wggsspmUmoKVM
 
 {
-  "newPassword": "newSecurePassword123",
-  "verificationCode": 461455 
+  "newPassword": "Harvey",
+  "verificationCode": 331837 
 }

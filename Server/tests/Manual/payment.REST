@@ -1,0 +1,8 @@
+POST http://localhost:4000/payment/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWI1ZTgxMGNjYTAyYTBlZGQwZTgxYSIsImVtYWlsIjoiaGp5ZW1tQGljbG91ZC5jb20iLCJpYXQiOjE3Mjk4NDk2MDcsImV4cCI6MTczMDQ1NDQwN30.rAvzA4ZKCQBeUuDep-eH_qZ0QKLcaiY3jMvfQ4Inu6E
+
+{
+    "trainerId": "tom",
+    "amount": 2300
+}
