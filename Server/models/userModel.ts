@@ -38,6 +38,7 @@ interface User extends Document {
       country?: string;
     };
   }[];
+  stripeCustomerId?: string,
   demographics?: {
     gender?: 'male' | 'female' | 'non-binary' | 'other';
     dateOfBirth?: Date;
@@ -94,7 +95,7 @@ const userSchema: Schema = new Schema({
       },
     },
   ],
-
+  stripeCustomerId: {type: String },
   demographics: {
     gender: { type: String, enum: ['male', 'female', 'non-binary', 'other'] },
     dateOfBirth: { type: Date },
