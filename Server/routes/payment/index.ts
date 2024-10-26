@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import createPaymentRouter from '@routes/payment/createPayment'
+import createPaymentRouter from '@routes/payment/payementIntent'
 
 const paymentRouter = Router();
 paymentRouter.use(express.json())
