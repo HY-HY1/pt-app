@@ -2,7 +2,7 @@ POST http://localhost:4000/auth/login
 Content-Type: application/json
 
 {
-    "email": "hjyemm@icloud.com",
+    "email": "hjyemm1@icloud.com",
     "password": "password123"
 }
 ###
@@ -12,7 +12,7 @@ Content-Type: application/json
 {
   "firstName": "Harvey",
   "lastName": "Yemm",
-  "email": "hjyemm@icloud.com",
+  "email": "hjyemm1@icloud.com",
   "password": "password123",
   "gender": "male",
   "dateOfBirth": "1990-01-01",
