@@ -1,6 +1,5 @@
-import stripe from '@config/Stripe'; // Adjust path if needed
-import UserModel from '@models/userModel'; // Adjust path to your User model if necessary
-import isExistingUser from '@utils/mongoose/isExistingUser';
+import stripe from "@config/Stripe"; // Adjust path if needed
+import isExistingUser from "@utils/mongoose/isExistingUser";
 
 interface Token {
   user: {
@@ -10,38 +9,28 @@ interface Token {
   };
 }
 
-const createCustomer = async (user:any): Promise<string> => {
-  try {
-    // Fetch the existing user document from the database
-    console.log(user.id)
-    const existingUser = await isExistingUser(user.id);
-    
-    console.log('User', user)
+// Create a new Stripe customer and save the ID to the user document
+const createCustomer = async (user: Token): Promise<string> => {
+  const userId = user.user.id;
 
-    if (!existingUser) {
-      throw new Error('User not found');
-    }
-
-    // If the user already has a Stripe customer ID, return it
-    if (existingUser.stripeCustomerId) {
-      return existingUser.stripeCustomerId;
-    }
-
-    // Create a new customer on Stripe
-    const customer = await stripe.customers.create({
-        email: existingUser.email,
-        name: existingUser.name.firstName + ' ' + existingUser.name.lastName
-        
-    });
-
-    existingUser.stripeCustomerId = customer.id;
-    await existingUser.save();
-
-    return customer.id;
-  } catch (error) {
-    console.error('Error creating Stripe customer:', error);
-    throw error;
+  // Fetch the existing user document from the database
+  const existingUser = await isExistingUser(userId);
+  if (!existingUser) {
+    throw new Error("User not found");
   }
+
+  // Create a new Stripe customer
+  const customer = await stripe.customers.create({
+    email: existingUser.email,
+    name: `${existingUser.name.firstName} ${existingUser.name.lastName}`,
+  });
+
+  // Save the newly created Stripe customer ID to the user document
+  existingUser.stripeCustomerId = customer.id;
+  await existingUser.save();
+  console.log("New Stripe customer created and saved");
+
+  return customer.id;
 };
 
 export default createCustomer;
