@@ -6,7 +6,7 @@ Content-Type: application/json
     "password": "password123"
 }
 ###
-POST https://pt-app-ashy.vercel.app/auth/register
+POST https://pt-app-hy-hy1-hy-hy1s-projects.vercel.app/auth/register
 Content-Type: application/json
 
 {

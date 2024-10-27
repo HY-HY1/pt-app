@@ -5,7 +5,7 @@ import authRouter from './routes/auth';  // Import the combined auth router
 import paymentRouter from './routes/payment'
 import { errorHandler, requestLogger, validateRequest } from './middleware/index';  // Ensure this path is correct
 
-export const app = express();
+const app = express();
 
 app.use(cors());
 app.use(express.json());  // Middleware for parsing JSON
@@ -34,3 +34,5 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+export default app
