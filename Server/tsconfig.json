@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES6",
     "module": "commonjs",
     "strict": true,
     "allowJs": true,
@@ -19,6 +19,6 @@
       "@config/*": ["./config/*"]
     }
   },
-  "include": ["./**/*"],
+  "include": ["*.ts", "config/**/*.ts", "middleware/**/*.ts", "routes/**/*.ts"],
   "exclude": ["node_modules"]
 }
