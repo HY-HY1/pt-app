@@ -5,6 +5,7 @@ import { sendVerificationCode } from '@services/nodemailer/emailVerification';
 import { generateVerificationCode } from '@utils/math/GenerateVericationCode';
 import { SaveVerificationCode } from '@services/nodemailer/SaveVerificationCode';
 import { requestLogger } from '@middleware/index';
+import { request } from 'http';
 
 const router = Router();
 
@@ -37,7 +38,7 @@ router.post('/create', async (req: Request, res: Response, next: NextFunction) =
 });
 
 
-router.post('/' ,async (req: Request, res: Response, next: NextFunction) => { 
+router.post('/' ,requestLogger,async (req: Request, res: Response, next: NextFunction) => { 
   try {
     const user = (req as any).user;
     const { VerificationCode, actionType } = req.body;  // Pass actionType as part of request
@@ -50,9 +51,12 @@ router.post('/' ,async (req: Request, res: Response, next: NextFunction) => {
       res.status(400).json({ error: 'Verification code not found', messsage: "User May Already Be Verified" });
       return;
     }
+    
 
     // Check if the userCode matches the verification code
     if (findCode.code !== VerificationCode) {
+      console.log("🚀 ~ router.post ~ VerificationCode:", VerificationCode)
+      console.log("🚀 ~ router.post ~ findCode.code:", findCode.code)
       res.status(400).json({ error: 'Invalid verification code' });
       return;
     }
