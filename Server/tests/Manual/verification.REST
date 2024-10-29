@@ -24,11 +24,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWE1MWEwZ
 ###
 POST http://localhost:4000/auth/account/verify
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWE1MWEwZThhMGIzYzIyOThjY2NmNSIsImVtYWlsIjoiaGp5ZW1tQGljbG91ZC5jb20iLCJpYXQiOjE3Mjk3NzgwODUsImV4cCI6MTczMDM4Mjg4NX0.gpUZimcbGm8BvrU_GNjM8Pk-gmGl69wggsspmUmoKVM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MjEyMjQxY2M2MmQwZjlmOGIyNTY3ZiIsImVtYWlsIjoiZGFuQGdtYWlsLmNvbSIsImlhdCI6MTczMDIyNDcwNSwiZXhwIjoxNzMwODI5NTA1fQ.LcJzR3QxbTrnMa2bHECSsjB27r4Ey-4UVyezn7GJubM
 
 {
-  "VerificationCode": 948103,
-  "actionType": "passwordChange"
+  "VerificationCode": 425953,
+  "actionType": "verify"
 }
 ###
 
